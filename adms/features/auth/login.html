@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REKABSEN | ADMS</title>
+  <script src="/adms/shared/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/adms/shared/css/style.css">
+  <link rel="stylesheet" href="/adms/shared/css/modern.css">
+  <link rel="stylesheet" href="/adms/shared/css/windows-95.css">
+  <script src="/adms/features/auth/auth.js" defer></script>
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="panel auth-card">
+      <div class="auth-brand">
+        <span class="brand-mark">R</span>
+        <div><strong>REKABSEN</strong><small>ADMS Attendance System</small></div>
+      </div>
+      <p class="eyebrow">REKABSEN · ADMS</p>
+      <h1 id="auth-title">Log in to REKABSEN</h1>
+      <p id="auth-description" class="auth-description">Enter your password to open the dashboard.</p>
+      <form id="auth-form" class="auth-form">
+        <label class="auth-field" for="password">
+          <span id="password-label">Password (at least 8 characters)</span>
+          <input id="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required autofocus>
+        </label>
+        <label id="confirmation-field" class="auth-field" for="confirm-password" hidden>
+          <span id="confirm-password-label">Confirm password</span>
+          <input id="confirm-password" type="password" autocomplete="new-password" maxlength="128" required>
+        </label>
+        <button id="submit" class="button auth-submit" type="submit" disabled>Login</button>
+        <p id="error" class="auth-error" role="alert"></p>
+      </form>
+    </section>
+    <footer class="app-footer">Copyright © <span id="copyright-year"></span> REKABSEN · by <a href="https://github.com/DrkF0rest/REKABSEN" target="_blank" rel="noopener noreferrer">DrkF0rest</a></footer>
+  </main>
+</body>
+</html>

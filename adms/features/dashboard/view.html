@@ -1,0 +1,38 @@
+<section id="dashboard-view" class="page-view">
+  <div class="dashboard-bento-grid" role="region" aria-label="Attendance summary" data-i18n-aria-label="summary.section">
+    <article class="panel dashboard-stat dashboard-bento-total">
+      <p class="dashboard-stat-label" data-i18n="summary.total">Attendance today</p>
+      <strong id="summary-total" class="dashboard-stat-value">0</strong>
+    </article>
+    <article class="panel dashboard-stat dashboard-bento-users">
+      <p class="dashboard-stat-label" data-i18n="summary.users">Users attended today</p>
+      <strong id="summary-users" class="dashboard-stat-value">0</strong>
+    </article>
+    <article class="panel dashboard-stat dashboard-bento-latest">
+      <p class="dashboard-stat-label" data-i18n="summary.latestTitle">Latest attendance today</p>
+      <div id="latest-attendance" class="latest-attendance"></div>
+    </article>
+
+  <section class="panel dashboard-bento-panel dashboard-status-panel">
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="summary.statusTitle">Attendance by status today</h2>
+        <p class="muted" data-i18n="summary.statusDescription">Records received today, grouped by status.</p>
+      </div>
+    </div>
+    <div id="summary-status" class="status-summary"></div>
+  </section>
+
+  <section class="panel dashboard-bento-panel dashboard-chart-panel">
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="summary.chartTitle">Attendance trend</h2>
+        <p class="muted" data-i18n="summary.chartDescription">Daily attendance records for the last 7 days.</p>
+      </div>
+    </div>
+    <div id="attendance-chart" class="attendance-chart"></div>
+  </section>
+
+  </div>
+  <p id="summary-error" class="error" role="alert" hidden></p>
+</section>

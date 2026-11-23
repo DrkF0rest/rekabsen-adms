@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REKABSEN | ADMS</title>
+  <script src="/adms/shared/js/theme-init.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="/adms/shared/css/style.css">
+  <link rel="stylesheet" href="/adms/shared/css/modern.css">
+  <link rel="stylesheet" href="/adms/shared/css/windows-95.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">R</span>
+        <div><strong>REKABSEN</strong><small>ADMS Attendance System</small></div>
+      </div>
+      <p class="nav-caption" data-i18n="nav.dashboard">Main Menu</p>
+      <nav class="sidebar-nav" aria-label="Main navigation" data-i18n-aria-label="nav.main">
+        <button class="nav-item active" type="button" data-view="dashboard-view" aria-current="page">
+          <i class="fa-solid fa-gauge-high nav-symbol" aria-hidden="true"></i>
+          <span data-i18n="nav.dashboard">Dashboard</span>
+        </button>
+        <button class="nav-item" type="button" data-view="attendance-view">
+          <i class="fa-solid fa-clipboard-list nav-symbol" aria-hidden="true"></i>
+          <span data-i18n="nav.attendance">Attendance Data</span>
+        </button>
+        <button class="nav-item" type="button" data-view="settings-view">
+          <i class="fa-solid fa-gear nav-symbol" aria-hidden="true"></i>
+          <span data-i18n="nav.settings">Settings</span>
+        </button>
+        <button class="nav-item" type="button" data-view="guide-view">
+          <i class="fa-solid fa-circle-question nav-symbol" aria-hidden="true"></i>
+          <span data-i18n="nav.guide">User Guide</span>
+        </button>
+      </nav>
+      <div id="account-actions" class="sidebar-account-section">
+        <div class="sidebar-account-actions">
+          <button id="change-password" class="button secondary" type="button" data-i18n="auth.changePassword">Change password</button>
+          <button id="logout" class="button secondary" type="button" aria-label="Log out" title="Log out" data-i18n-aria-label="auth.logout" data-i18n-title="auth.logout">
+            <svg class="sidebar-logout-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M10 17l5-5-5-5M15 12H3M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"></path>
+            </svg>
+          </button>
+        </div>
+        <p id="auth-notice" class="sidebar-auth-notice" role="status" hidden></p>
+      </div>
+      <div class="sidebar-footer">REKABSEN</div>
+    </aside>
+
+    <main class="page">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">REKABSEN · ADMS</p>
+        <h1 id="page-title">REKABSEN</h1>
+        <p id="page-description" class="page-description">Monitor attendance devices and records in real time.</p>
+      </div>
+      <div class="header-actions">
+        <span id="hero-date" class="hero-date" aria-live="polite"></span>
+        <span id="connection" class="connection" role="status" aria-live="polite">Connecting...</span>
+      </div>
+    </header>
+
+    {{dashboard_view}}
+    <div id="attendance-view" class="page-view" hidden>
+    <section class="panel">
+      <div class="section-heading">
+        <h2 data-i18n="dashboard.devices">Devices</h2>
+        <span id="device-count" class="muted">0 devices</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th data-i18n="table.deviceName">Device Name</th><th data-i18n="table.ipAddress">IP Address</th><th data-i18n="table.lastSeen">Last Seen</th></tr></thead>
+          <tbody id="devices"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2 data-i18n="dashboard.attendance">Attendance Records</h2>
+          <p id="log-count" class="muted">Loading records...</p>
+        </div>
+        <a id="export" class="button secondary" href="/export.xlsx" data-i18n="dashboard.export">Download XLSX</a>
+      </div>
+      <form id="filters" class="filters">
+        <select id="search-by" aria-label="Search by" data-i18n-aria-label="filters.searchBy">
+          <option value="all" data-i18n="filters.allColumns">All columns</option>
+          <option value="pin">User ID</option>
+          <option value="name" data-i18n="filters.name">Name</option>
+          <option value="sn" data-i18n="filters.serialNumber">Serial number</option>
+          <option value="ts" data-i18n="filters.date">Date</option>
+        </select>
+        <input id="search" type="search" placeholder="Search records..." aria-label="Search records" data-i18n-placeholder="filters.searchPlaceholder" data-i18n-aria-label="filters.searchPlaceholder">
+        <div class="date-filter">
+          <time id="log-date" class="date-value" aria-label="Date" data-i18n-aria-label="filters.date"></time>
+          <button id="date-picker-button" class="button secondary date-picker-button" type="button" aria-label="Choose date" title="Choose date" data-i18n-aria-label="filters.chooseDate" data-i18n-title="filters.chooseDate">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+              <path d="M8 3v4M16 3v4M3 9h18M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"></path>
+            </svg>
+          </button>
+          <input id="date-picker-input" class="date-picker-input" type="date" tabindex="-1" aria-hidden="true">
+        </div>
+        <button id="clear-data" class="button danger" type="button" data-i18n="dashboard.clearData">Clear Data</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div class="table-wrap">
+        <table class="attendance-table">
+          <thead>
+            <tr>
+              <th aria-sort="descending"><button class="sort-header" type="button" data-sort="ts" aria-label="Sort by time" data-i18n-aria-label="sort.time"><span data-i18n="table.time">Time</span><span class="sort-indicator" aria-hidden="true">▼</span></button></th>
+              <th aria-sort="none"><button class="sort-header" type="button" data-sort="pin" aria-label="Sort by user ID" data-i18n-aria-label="sort.userId"><span>User ID</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th aria-sort="none"><button class="sort-header" type="button" data-sort="name" aria-label="Sort by name" data-i18n-aria-label="sort.name"><span data-i18n="filters.name">Name</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th aria-sort="none"><button class="sort-header" type="button" data-sort="status" aria-label="Sort by status" data-i18n-aria-label="sort.status"><span data-i18n="table.status">Status</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+              <th aria-sort="none"><button class="sort-header" type="button" data-sort="verify" aria-label="Sort by verification" data-i18n-aria-label="sort.verification"><span data-i18n="table.verification">Verification</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+            </tr>
+          </thead>
+          <tbody id="logs"></tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <label for="page-size" data-i18n="filters.rowsPerTable">Rows per table</label>
+        <select id="page-size" aria-label="Rows per table" data-i18n-aria-label="filters.rowsPerTable">
+          <option value="10">10 rows</option>
+          <option value="50">50 rows</option>
+          <option value="100" selected>100 rows</option>
+          <option value="150">150 rows</option>
+          <option value="500">500 rows</option>
+        </select>
+      </div>
+      <nav id="attendance-pagination" class="pagination" aria-label="Attendance pages" data-i18n-aria-label="pagination.label" hidden>
+        <button id="previous-page" class="page-arrow" type="button" aria-label="Previous page" data-i18n-aria-label="pagination.previous" disabled>
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div id="pagination-pages" class="page-numbers"></div>
+        <button id="next-page" class="page-arrow" type="button" aria-label="Next page" data-i18n-aria-label="pagination.next" disabled>
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </nav>
+    </section>
+    <footer data-i18n="attendance.footer">Only attendance data received by the ADMS server is displayed.</footer>
+    </div>
+
+    {{settings_view}}
+    {{guide_view}}
+    <footer class="app-footer">Copyright © {{copyright_year}} REKABSEN · by <a href="https://github.com/DrkF0rest/REKABSEN" target="_blank" rel="noopener noreferrer">DrkF0rest</a></footer>
+    </main>
+  </div>
+  <dialog id="app-modal" class="app-modal" aria-labelledby="app-modal-title" aria-describedby="app-modal-message">
+    <div class="modal-content">
+      <h2 id="app-modal-title"></h2>
+      <p id="app-modal-message"></p>
+      <div class="modal-actions">
+        <button id="app-modal-cancel" class="button secondary" type="button" data-i18n="common.cancel">Cancel</button>
+        <button id="app-modal-confirm" class="button" type="button" data-i18n="common.continue">Continue</button>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="password-modal" class="app-modal" aria-labelledby="password-modal-title">
+    <form id="change-password-form" class="modal-content password-change-form">
+      <h2 id="password-modal-title" data-i18n="auth.changePassword">Change password</h2>
+      <p data-i18n="auth.passwordDescription">Verify your current password and enter a new password.</p>
+      <label for="old-password" data-i18n="auth.oldPassword">Current password</label>
+      <input id="old-password" type="password" autocomplete="current-password" maxlength="128" required>
+      <label for="new-password" data-i18n="auth.newPassword">New password (at least 8 characters)</label>
+      <input id="new-password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+      <label for="confirm-new-password" data-i18n="auth.confirmNewPassword">Verify new password</label>
+      <input id="confirm-new-password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+      <p id="password-change-error" class="password-change-error" role="alert" hidden></p>
+      <div class="modal-actions">
+        <button id="cancel-password-change" class="button secondary" type="button" data-i18n="common.cancel">Cancel</button>
+        <button id="save-password-change" class="button" type="submit" data-i18n="auth.savePassword">Save password</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="/adms/shared/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+:root[data-ui-style="windows-95"] {
+  color-scheme: light;
+  font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+  color: #000;
+  background: #c0c0c0;
+  --theme-light: #dfdfdf;
+  --theme-outline: #fff;
+  --theme-primary: #000080;
+  --theme-hover: #000080;
+  --theme-strong: #000080;
+  --theme-dark: #000080;
+  --theme-deep: #404040;
+  --theme-pale: #fff;
+  --sidebar-top: #c0c0c0;
+  --sidebar-bottom: #c0c0c0;
+  --header-start: #000080;
+  --header-mid: #000080;
+  --header-end: #1084d0;
+  --page-bg: #c0c0c0;
+  --surface-tint: #d4d0c8;
+  --surface-bottom: #c0c0c0;
+  --line: #808080;
+  --muted: #404040;
+}
+
+:root[data-ui-style="windows-95"],
+:root[data-ui-style="windows-95"] *,
+:root[data-ui-style="windows-95"] *::before,
+:root[data-ui-style="windows-95"] *::after {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-image: none !important;
+  transition: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+:root[data-ui-style="windows-95"] body,
+:root[data-ui-style="windows-95"] .app-shell,
+:root[data-ui-style="windows-95"] .page {
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .sidebar,
+:root[data-ui-style="windows-95"] .sidebar-nav {
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .sidebar {
+  border: 2px outset #dfdfdf;
+}
+
+:root[data-ui-style="windows-95"] .sidebar-brand,
+:root[data-ui-style="windows-95"] .page-header {
+  background-color: #000080;
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .sidebar-brand {
+  border: 2px outset #dfdfdf;
+}
+
+:root[data-ui-style="windows-95"] .brand-mark {
+  border: 2px outset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000080;
+}
+
+:root[data-ui-style="windows-95"] .nav-indicator,
+:root[data-ui-style="windows-95"] #appearance-theme-label,
+:root[data-ui-style="windows-95"] #appearance-theme {
+  display: none;
+}
+
+:root[data-ui-style="windows-95"] .sidebar-brand small,
+:root[data-ui-style="windows-95"] .page-header h1,
+:root[data-ui-style="windows-95"] .page-header .eyebrow,
+:root[data-ui-style="windows-95"] .page-header .page-description,
+:root[data-ui-style="windows-95"] .page-header .hero-date,
+:root[data-ui-style="windows-95"] .page-header .connection {
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .nav-caption,
+:root[data-ui-style="windows-95"] .sidebar-footer {
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .page-header {
+  border: 2px outset #dfdfdf;
+}
+
+:root[data-ui-style="windows-95"] .page-header::after {
+  display: none;
+}
+
+:root[data-ui-style="windows-95"] .hero-date,
+:root[data-ui-style="windows-95"] .connection {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+:root[data-ui-style="windows-95"] .connection.online,
+:root[data-ui-style="windows-95"] .connection.warning {
+  border-color: #fff;
+  background-color: transparent;
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .connection::before {
+  border: 1px solid #000;
+  background-color: #008000;
+}
+
+:root[data-ui-style="windows-95"] .connection.warning::before {
+  background-color: #ffff00;
+}
+
+:root[data-ui-style="windows-95"] .panel,
+:root[data-ui-style="windows-95"] .dashboard-stat,
+:root[data-ui-style="windows-95"] .status-summary-card,
+:root[data-ui-style="windows-95"] .guide-card,
+:root[data-ui-style="windows-95"] .filters,
+:root[data-ui-style="windows-95"] .auth-card {
+  border: 2px outset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .section-heading {
+  border-bottom: 1px solid #808080;
+  background-color: #c0c0c0;
+}
+
+:root[data-ui-style="windows-95"] .section-heading h2::before {
+  display: none;
+}
+
+:root[data-ui-style="windows-95"] .section-heading > .muted {
+  border: 1px solid #808080;
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .dashboard-stat-value,
+:root[data-ui-style="windows-95"] .status-summary-card strong,
+:root[data-ui-style="windows-95"] .guide-card h3,
+:root[data-ui-style="windows-95"] .auth-card h1 {
+  color: #000080;
+}
+
+:root[data-ui-style="windows-95"] .dashboard-stat-label,
+:root[data-ui-style="windows-95"] .guide-card p,
+:root[data-ui-style="windows-95"] .checkbox-label,
+:root[data-ui-style="windows-95"] .appearance-label,
+:root[data-ui-style="windows-95"] .auth-field,
+:root[data-ui-style="windows-95"] .sidebar-auth-notice {
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .account-settings-actions .sidebar-account-actions .button {
+  border: 2px outset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .account-settings-actions .sidebar-account-actions .button:hover {
+  background-color: #dfdfdf;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .guide-card {
+  border-style: outset;
+}
+
+:root[data-ui-style="windows-95"] .guide-number {
+  border: 2px inset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .filters,
+:root[data-ui-style="windows-95"] .status-summary-card {
+  border-style: inset;
+}
+
+:root[data-ui-style="windows-95"] .attendance-chart-gridline {
+  stroke: #808080;
+  stroke-dasharray: none;
+}
+
+:root[data-ui-style="windows-95"] .attendance-chart-line {
+  stroke: #000080;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 2;
+}
+
+:root[data-ui-style="windows-95"] .attendance-chart-point {
+  fill: #c0c0c0;
+  stroke: #000080;
+  stroke-width: 1;
+}
+
+:root[data-ui-style="windows-95"] .input,
+:root[data-ui-style="windows-95"] input,
+:root[data-ui-style="windows-95"] select,
+:root[data-ui-style="windows-95"] textarea,
+:root[data-ui-style="windows-95"] .date-value {
+  border: 2px inset #dfdfdf;
+  background-color: #fff;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] select {
+  appearance: auto;
+}
+
+:root[data-ui-style="windows-95"] input::placeholder {
+  color: #666;
+}
+
+:root[data-ui-style="windows-95"] input:focus,
+:root[data-ui-style="windows-95"] select:focus,
+:root[data-ui-style="windows-95"] textarea:focus {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+:root[data-ui-style="windows-95"] button,
+:root[data-ui-style="windows-95"] .button,
+:root[data-ui-style="windows-95"] .page-arrow,
+:root[data-ui-style="windows-95"] .page-number {
+  border: 2px outset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000;
+  cursor: pointer;
+  font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+}
+
+:root[data-ui-style="windows-95"] button:hover,
+:root[data-ui-style="windows-95"] .button:hover,
+:root[data-ui-style="windows-95"] .page-arrow:hover:not(:disabled),
+:root[data-ui-style="windows-95"] .page-number:hover {
+  border-style: outset;
+  background-color: #dfdfdf;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] button:active,
+:root[data-ui-style="windows-95"] .button:active,
+:root[data-ui-style="windows-95"] .page-number[aria-current="page"] {
+  border-style: inset;
+  background-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .nav-item {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .nav-item:hover {
+  border-color: #808080;
+  background-color: #dfdfdf;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .nav-item.active {
+  border: 2px inset #dfdfdf;
+  background-color: #000080;
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .nav-symbol,
+:root[data-ui-style="windows-95"] .page-arrow i {
+  font-family: "Segoe UI Symbol", Tahoma, sans-serif;
+  font-style: normal;
+}
+
+:root[data-ui-style="windows-95"] .nav-item[data-view="dashboard-view"] .nav-symbol::before {
+  content: "▣";
+}
+
+:root[data-ui-style="windows-95"] .nav-item[data-view="attendance-view"] .nav-symbol::before {
+  content: "▤";
+}
+
+:root[data-ui-style="windows-95"] .nav-item[data-view="settings-view"] .nav-symbol::before {
+  content: "⚙";
+}
+
+:root[data-ui-style="windows-95"] .nav-item[data-view="guide-view"] .nav-symbol::before {
+  content: "?";
+}
+
+:root[data-ui-style="windows-95"] #previous-page i::before {
+  content: "◀";
+}
+
+:root[data-ui-style="windows-95"] #next-page i::before {
+  content: "▶";
+}
+
+:root[data-ui-style="windows-95"] .sort-header {
+  border: 0;
+  background-color: transparent;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .sort-header:hover {
+  background-color: #000080;
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .table-wrap {
+  border: 2px inset #dfdfdf;
+  background-color: #fff;
+}
+
+:root[data-ui-style="windows-95"] th,
+:root[data-ui-style="windows-95"] .panel:nth-of-type(2) th,
+:root[data-ui-style="windows-95"] .latest-attendance-table th {
+  background-color: #c0c0c0;
+  color: #000;
+  font-weight: 700;
+}
+
+:root[data-ui-style="windows-95"] td,
+:root[data-ui-style="windows-95"] .latest-attendance-table td {
+  border-color: #c0c0c0;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+:root[data-ui-style="windows-95"] tbody tr:hover,
+:root[data-ui-style="windows-95"] tbody tr:hover td {
+  background-color: #000080;
+  color: #fff;
+}
+
+:root[data-ui-style="windows-95"] .button.danger {
+  border-color: #800000;
+  background-color: #c0c0c0;
+  color: #800000;
+}
+
+:root[data-ui-style="windows-95"] button:disabled,
+:root[data-ui-style="windows-95"] .button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+:root[data-ui-style="windows-95"] .notice,
+:root[data-ui-style="windows-95"] .error,
+:root[data-ui-style="windows-95"] .auth-error {
+  border: 1px solid #808080;
+  background-color: #fff;
+  color: #800000;
+}
+
+:root[data-ui-style="windows-95"] .notice.success {
+  color: #006000;
+}
+
+:root[data-ui-style="windows-95"] .app-modal {
+  border: 2px outset #dfdfdf;
+  background-color: #c0c0c0;
+  color: #000;
+  font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+}
+
+:root[data-ui-style="windows-95"] .app-modal::backdrop {
+  background: rgb(0 0 0 / 45%);
+  backdrop-filter: none;
+}
+
+:root[data-ui-style="windows-95"] .modal-content h2 {
+  margin: -22px -22px 12px;
+  padding: 6px 10px;
+  background-color: #000080;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+:root[data-ui-style="windows-95"] .app-footer,
+:root[data-ui-style="windows-95"] footer {
+  border-color: #808080;
+  color: #000;
+}
+
+:root[data-ui-style="windows-95"] .app-footer a {
+  color: #000080;
+}
+
+:root[data-ui-style="windows-95"] .app-footer a:hover {
+  background-color: #000080;
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  :root[data-ui-style="windows-95"] .sidebar-nav {
+    border-top: 2px solid #fff;
+    background-color: #c0c0c0;
+  }
+}

@@ -1,0 +1,121 @@
+<section id="settings-view" class="page-view" hidden>
+  <section id="account-settings-panel" class="panel settings-panel account-settings-panel" hidden>
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="auth.accountSettings">Account</h2>
+        <p class="muted" data-i18n="auth.accountDescription">Manage your password and login session.</p>
+      </div>
+    </div>
+    <div id="account-settings-actions" class="account-settings-actions"></div>
+  </section>
+  <section class="panel settings-panel">
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="settings.database">Database</h2>
+        <p class="muted" data-i18n="settings.databaseDescription">Choose where ADMS data is stored.</p>
+      </div>
+    </div>
+    <form id="database-settings" class="database-settings">
+      <label for="db-backend" data-i18n="settings.activeDatabase">Active Database</label>
+      <select id="db-backend" name="backend">
+        <option value="sqlite" data-i18n="settings.sqliteLocal">SQLite (local)</option>
+        <option value="mysql">MySQL Server</option>
+      </select>
+      <label id="db-name-label" for="db-name" data-i18n="settings.databaseName">Database Name</label>
+      <input id="db-name" name="database_name" type="text" maxlength="67" required>
+      <label for="db-host" data-i18n="settings.mysqlHost">MySQL Host</label>
+      <input id="db-host" name="host" type="text" maxlength="253" required>
+      <label for="db-port" data-i18n="settings.mysqlPort">MySQL Port</label>
+      <input id="db-port" name="port" type="number" min="1" max="65535" required>
+      <label for="db-user" data-i18n="settings.username">Username</label>
+      <input id="db-user" name="user" type="text" maxlength="64" autocomplete="username" required>
+      <label for="db-password" data-i18n="settings.password">Password</label>
+      <div class="password-field">
+        <input id="db-password" name="password" type="password" autocomplete="new-password" placeholder="Enter MySQL password" data-i18n-placeholder="settings.enterMysqlPassword" required>
+        <label class="checkbox-label" for="db-clear-password">
+          <input id="db-clear-password" name="clear_password" type="checkbox">
+          <span data-i18n="settings.useEmptyPassword">Use an empty password</span>
+        </label>
+      </div>
+      <label for="db-transfer" data-i18n="settings.dataTransfer">Data Transfer</label>
+      <select id="db-transfer" name="transfer">
+        <option value="migrate" data-i18n="settings.migrateData">Copy data from the active database</option>
+        <option value="empty" data-i18n="settings.useEmptyDatabase">Use the destination database without copying data</option>
+      </select>
+      <button id="save-database" class="button" type="submit" data-i18n="settings.applyDatabase">Apply Database</button>
+    </form>
+    <p id="database-notice" class="notice" role="status" hidden></p>
+  </section>
+  <section class="panel settings-panel">
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="settings.deviceNames">Device Names</h2>
+        <p class="muted" data-i18n="settings.deviceNamesDescription">Set a display name for each fingerprint device.</p>
+      </div>
+    </div>
+    <p class="settings-help" data-i18n="settings.deviceNamesHelp">Blank names use the serial number by default.</p>
+    <p id="settings-notice" class="notice" role="status" hidden></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Serial Number</th><th data-i18n="table.deviceName">Device Name</th><th data-i18n="table.action">Action</th></tr>
+        </thead>
+        <tbody id="device-settings"></tbody>
+      </table>
+    </div>
+  </section>
+  <section class="panel settings-panel">
+    <div class="section-heading">
+      <div>
+        <h2 data-i18n="appearance.title">Appearance</h2>
+        <p class="muted" data-i18n="appearance.description">Customize the REKABSEN theme and language.</p>
+      </div>
+    </div>
+    <div class="database-settings appearance-settings">
+      <span id="appearance-theme-label" class="appearance-label" data-i18n="appearance.colorTheme">Color Theme</span>
+      <div id="appearance-theme" class="theme-options" role="radiogroup" aria-labelledby="appearance-theme-label">
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="aqua">
+          <span class="theme-swatch theme-swatch-aqua" aria-hidden="true"></span>
+          <span data-theme-name="aqua">Aqua</span>
+        </label>
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="lime">
+          <span class="theme-swatch theme-swatch-lime" aria-hidden="true"></span>
+          <span data-theme-name="lime">Lime</span>
+        </label>
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="orange">
+          <span class="theme-swatch theme-swatch-orange" aria-hidden="true"></span>
+          <span data-theme-name="orange">Orange</span>
+        </label>
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="grape">
+          <span class="theme-swatch theme-swatch-grape" aria-hidden="true"></span>
+          <span data-theme-name="grape">Grape</span>
+        </label>
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="pink">
+          <span class="theme-swatch theme-swatch-pink" aria-hidden="true"></span>
+          <span data-theme-name="pink">Pink</span>
+        </label>
+        <label class="theme-option">
+          <input type="radio" name="appearance-theme" value="graphite">
+          <span class="theme-swatch theme-swatch-graphite" aria-hidden="true"></span>
+          <span data-theme-name="graphite">Graphite</span>
+        </label>
+      </div>
+      <label for="appearance-style" class="appearance-label" data-i18n="appearance.style">UI Style</label>
+      <select id="appearance-style">
+        <option value="web20" data-i18n="appearance.styleWeb20">Web 2.0</option>
+        <option value="modern" data-i18n="appearance.styleModern">Modern Clean</option>
+        <option value="windows-95" data-i18n="appearance.styleWindows95">Windows 95 Classic</option>
+      </select>
+      <label for="appearance-language" data-i18n="appearance.language">Language</label>
+      <select id="appearance-language">
+        <option value="en">English</option>
+        <option value="id">Bahasa Indonesia</option>
+      </select>
+    </div>
+  </section>
+</section>
